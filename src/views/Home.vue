@@ -1,18 +1,29 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <h1>HOME</h1>
+    <h2>{{ mensagemdohomecontroller }}</h2>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
 
 export default {
   name: "Home",
   components: {
-    HelloWorld,
   },
+  data(){
+    return {
+      mensagemdohomecontroller : ''
+    }
+  },
+  mounted(){
+    fetch('http://localhost:8085')
+      .then(response => {
+        return response.text();
+      })
+      .then(data => {
+        this.mensagemdohomecontroller = data;
+      });
+  }
 };
 </script>
