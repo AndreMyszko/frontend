@@ -1,7 +1,7 @@
 <template>
   <div id="sobre_devs">
-    <div class="container mb-3">
-      <b-card title="Desenvolvedores">
+    <div class="container pb-3">
+      <b-card id="cardDev" title="Desenvolvedores">
         <b-card-text>
           Aqui são apresentados os desenvolvedores envolvidos neste projeto,
           assim como suas informações, como habilidades e contatos:
@@ -56,7 +56,7 @@
           >Mais algumas informações sobre nossa comunidade através dos
           links:</b-card-text
         >
-        <b-link href="#" class="card-link">>Dischord</b-link>
+        <b-link href="#" class="card-link">>Discord</b-link>
         <b-link href="#" class="card-link">>Github</b-link>
         <b-link href="#" class="card-link">>Whatsapp</b-link>
       </b-card>
@@ -76,5 +76,8 @@ export default {
   width: 150px;
   height: 150px;
   border-style: solid;
+}
+#cardDev{
+  background-color:rgba(143, 238, 171, 0.5);
 }
 </style>

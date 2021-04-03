@@ -19,3 +19,9 @@ export default {
   components: {},
 };
 </script>
+
+<style scoped>
+#nav{
+  background: linear-gradient(to right, rgba(77, 184, 255, 0.5), rgba(91, 255, 140, 0.5)); 
+}
+</style>
