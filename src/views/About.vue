@@ -14,13 +14,17 @@ export default {
   name: "About",
   components: {
     SobreDev,
-    SobreProjeto
+    SobreProjeto,
   },
 };
 </script>
 
 <style scoped>
-#about{
-  background: linear-gradient(to right, rgba(143, 238, 171, 0.5), rgba(143, 200, 238, 0.5)); 
+#about {
+  background: linear-gradient(
+    to right,
+    rgba(143, 238, 171, 0.5),
+    rgba(143, 200, 238, 0.5)
+  );
 }
 </style>

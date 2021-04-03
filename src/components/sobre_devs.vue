@@ -77,7 +77,7 @@ export default {
   height: 150px;
   border-style: solid;
 }
-#cardDev{
-  background-color:rgba(143, 238, 171, 0.5);
+#cardDev {
+  background-color: rgba(143, 238, 171, 0.5);
 }
 </style>
