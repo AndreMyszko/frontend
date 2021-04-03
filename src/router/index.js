@@ -22,6 +22,12 @@ const routes = [
     component: () =>
       import("../views/User.vue"),
   },
+  {
+    path: "/graphic",
+    name: "Graphic",
+    component: () =>
+      import("../views/Graphic.vue"),
+  },
 ];
 
 const router = new VueRouter({
