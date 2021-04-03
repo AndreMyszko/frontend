@@ -6,24 +6,22 @@
 </template>
 
 <script>
-
 export default {
   name: "Home",
-  components: {
-  },
-  data(){
+  components: {},
+  data() {
     return {
-      mensagemdohomecontroller : ''
-    }
+      mensagemdohomecontroller: "",
+    };
   },
-  mounted(){
-    fetch('http://localhost:8085')
-      .then(response => {
+  mounted() {
+    fetch("http://localhost:8085")
+      .then((response) => {
         return response.text();
       })
-      .then(data => {
+      .then((data) => {
         this.mensagemdohomecontroller = data;
       });
-  }
+  },
 };
 </script>

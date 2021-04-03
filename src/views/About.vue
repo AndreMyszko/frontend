@@ -6,13 +6,12 @@
 </template>
 
 <script>
-import SobreDev from '../components/sobre_devs'
+import SobreDev from "../components/sobre_devs";
 
 export default {
-  name: 'About',
+  name: "About",
   components: {
-    SobreDev
+    SobreDev,
   },
-
-}
+};
 </script>
