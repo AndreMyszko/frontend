@@ -6,19 +6,22 @@
 </template>
 
 <script>
-import GraphicTest from '../components/graphic_test';
+import GraphicTest from "../components/graphic_test";
 
 export default {
-  name:"Graphic",
+  name: "Graphic",
   components: {
     GraphicTest,
   },
-  
-}
+};
 </script>
 
 <style scoped>
 #graphic {
-  background: linear-gradient(to right, rgba(143, 238, 171, 0.5), rgba(143, 200, 238, 0.5));
+  background: linear-gradient(
+    to right,
+    rgba(143, 238, 171, 0.5),
+    rgba(143, 200, 238, 0.5)
+  );
 }
 </style>

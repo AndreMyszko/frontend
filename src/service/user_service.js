@@ -1,16 +1,13 @@
-import axios from 'axios';
+import axios from "axios";
 
-const serve = "user";
+const instructor = "user";
 const root_url = "http://localhost:8085";
-const user_api_url = '${root_url}/{serve}';
+const user_api_url = `${root_url}/${instructor}`;
 
-class UserDataService{
-    retriveAllUsers(){
-        return axios.get('${user_api_url}/all-users}');
-    }
-
+class UserDataService {
+  retriveAllUsers() {
+    return axios.get(`${user_api_url}/all-users`);
+  }
 }
 
-export default UserDataService();
-
-
+export default new UserDataService();

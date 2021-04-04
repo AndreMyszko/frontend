@@ -1,14 +1,39 @@
 <template>
   <div class="container">
-    <h3 class="float-left"><b-icon icon="people-fill"></b-icon> | All Users:</h3>
-    <b-table striped hover :items="items"></b-table>
+    <h3 class="float-left">
+      <b-icon icon="people-fill"></b-icon> | All Users:
+    </h3>
+    <!-- <b-table striped hover :items="items"></b-table> -->
   </div>
 </template>
 
 <script>
+import UserService from "../service/user_service";
+
 export default {
-    name: "UserTable",
-    data() {
+  name: "UserTable",
+  data() {
+    return {
+      instructor: "user",
+    };
+  },
+  methods: {
+    refreshUser() {
+      UserService.retriveAllUsers(this.instructor).then((response) => {
+        console.log(response.data);
+      });
+    },
+  },
+  created() {
+    this.refreshUser();
+  },
+};
+</script>
+
+<style scoped></style>
+
+<!-- insert into data(){} to return a static list -->
+<!--
       return {
         items: [
           { id: 1, name: 'Bob Esponja Calça Quadrada', email: 'email@email.com', password:'********', user_role:'admin', active: true },  
@@ -32,10 +57,5 @@ export default {
 
         ]
       }
-    } 
-}
-</script>
 
-<style scoped>
-
-</style>
+-->

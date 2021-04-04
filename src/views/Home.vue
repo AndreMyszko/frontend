@@ -28,6 +28,10 @@ export default {
 
 <style scoped>
 #home {
-  background: linear-gradient(to right, rgba(143, 238, 171, 0.5), rgba(143, 200, 238, 0.5));
+  background: linear-gradient(
+    to right,
+    rgba(143, 238, 171, 0.5),
+    rgba(143, 200, 238, 0.5)
+  );
 }
 </style>
