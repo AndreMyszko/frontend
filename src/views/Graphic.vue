@@ -1,11 +1,18 @@
 <template>
   <div id="graphic" class="pb-3">
     <h1>GRAPHIC</h1>
+    <GraphicTest />
   </div>
 </template>
 
 <script>
+import GraphicTest from '../components/graphic_test';
+
 export default {
+  name:"Graphic",
+  components: {
+    GraphicTest,
+  },
   
 }
 </script>
