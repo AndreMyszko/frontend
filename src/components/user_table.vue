@@ -3,6 +3,26 @@
     <h3 class="float-left">
       <b-icon icon="people-fill"></b-icon> | All Users:
     </h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Active</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="user in users" v-bind:key="user.id">
+          <td>{{user.id}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.user_role}}</td>
+          <td>{{user.active}}</td>
+        </tr>
+      </tbody>
+    </table>
     <!-- <b-table striped hover :items="items"></b-table> -->
   </div>
 </template>
@@ -14,12 +34,16 @@ export default {
   name: "UserTable",
   data() {
     return {
+      users: [],
+      message: null,
       instructor: "user",
     };
   },
   methods: {
     refreshUser() {
-      UserService.retriveAllUsers(this.instructor).then((response) => {
+      UserService.retriveAllUsers(this.instructor)
+        .then((response) => {
+        this.users = response.data;
         console.log(response.data);
       });
     },
