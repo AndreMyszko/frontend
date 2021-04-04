@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div id="home" class="pb-3">
     <h1>HOME</h1>
     <h2>{{ mensagemdohomecontroller }}</h2>
   </div>
@@ -25,3 +25,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+#home {
+  background: linear-gradient(to right, rgba(143, 238, 171, 0.5), rgba(143, 200, 238, 0.5));
+}
+</style>
