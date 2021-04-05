@@ -7,23 +7,23 @@
       <form>
         <fieldset class="form-group">
           <label>Name</label>
-          <input type="text" class="form-control" v-model="description">
+          <input type="text" class="form-control"> <!-- v-model="description" -->
         </fieldset>
         <fieldset class="form-group">
           <label>Email</label>
-          <input type="text" class="form-control" v-model="description">
+          <input type="text" class="form-control">
         </fieldset>
         <fieldset class="form-group">
           <label>Password</label>
-          <input type="password" class="form-control" v-model="description">
+          <input type="password" class="form-control">
         </fieldset>
         <fieldset class="form-group">
           <label>User_Role</label>
-          <input type="text" class="form-control" v-model="description">
+          <input type="text" class="form-control">
         </fieldset>
         <fieldset class="form-group">
           <label>Active</label>
-          <input type="text" class="form-control" v-model="description">
+          <input type="text" class="form-control">
         </fieldset>
         <button class="btn btn-success" type="submit">Add User</button>
       </form>
@@ -70,7 +70,6 @@
         </tr>
       </tbody>
     </table>
-    <!-- <b-table striped hover :items="items"></b-table> -->
   </div>
 </template>
 
@@ -94,12 +93,14 @@ export default {
         console.log(response.data);
       });
     },
-    // deleteUserClick(user) {
-    //   UserService.deleteUser(this.instructor, user).then(response => {
-    //     this.message = `Delete user ${user} successful`;
-    //     this.refreshUser();  
-    //   });
-    // },
+    deleteUserClick(user) {
+      UserService.deleteUser(this.instructor, user)
+        .then(response => {
+        this.message = `Delete user ${user.id} - ${user.email} successful`;
+        this.refreshUser(); 
+        return response 
+      });
+    },
   },
   created() {
     this.refreshUser();

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instructor = "user";
-const root_url = "http://localhost:8085";
+const root_url = "http://localhost:8080";
 const user_api_url = `${root_url}/${instructor}`;
 
 class UserDataService {
