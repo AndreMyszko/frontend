@@ -1,54 +1,30 @@
-<template>
-  <div class="small">
-    <line-chart :chart-data="datacollection"></line-chart>
-    <button @click="fillData()">Randomize</button>
-  </div>
-</template>
-
 <script>
-import LineChart from "vue-chartjs";
+import { GChart } from 'vue-google-charts';
 
 export default {
-  name: "GraphicTest",
-  components: {
-    LineChart,
-  },
-  data() {
-    return {
-      datacollection: null,
-    };
-  },
-  mounted() {
-    this.fillData();
-  },
-  methods: {
-    fillData() {
-      this.datacollection = {
-        labels: [this.getRandomInt(), this.getRandomInt()],
-        datasets: [
-          {
-            label: "Data One",
-            backgroundColor: "#f87979",
-            data: [this.getRandomInt(), this.getRandomInt()],
-          },
-          {
-            label: "Data One",
-            backgroundColor: "#f87979",
-            data: [this.getRandomInt(), this.getRandomInt()],
-          },
-        ],
-      };
-    },
-    getRandomInt() {
-      return Math.floor(Math.random() * (50 - 5 + 1)) + 5;
-    },
-  },
-};
-</script>
+  name:"GraphicTest",
 
-<style>
-.small {
-  max-width: 600px;
-  margin: 150px auto;
+  components:{
+    GChart
+  },
+  
+  data () {
+    return {
+      // Array will be automatically processed with visualization.arrayToDataTable function
+      chartData: [
+        ['Year', 'Sales', 'Expenses', 'Profit'],
+        ['2014', 1000, 400, 200],
+        ['2015', 1170, 460, 250],
+        ['2016', 660, 1120, 300],
+        ['2017', 1030, 540, 350]
+      ],
+      chartOptions: {
+        chart: {
+          title: 'Company Performance',
+          subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+        }
+      }
+    }
+  }
 }
-</style>
+</script>

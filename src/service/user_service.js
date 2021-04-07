@@ -8,8 +8,11 @@ class UserDataService {
   retriveAllUsers() {
     return axios.get(`${user_api_url}/all-users`);
   }
-  deleteUser(user){
-    return axios.delete(`${user_api_url}/delete-user/${user}`);
+  deleteUser(name, id){
+    return axios.delete(`${user_api_url}/delete-user=${id}`);
+  }
+  addUser(user) {
+    return axios.post(`${user_api_url}/insert-user=${user}`);
   }
 }
 
