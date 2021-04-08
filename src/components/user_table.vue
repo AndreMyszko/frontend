@@ -5,57 +5,9 @@
     <div v-if="message" class="alert alert-danger">
       <b-icon icon="info-square-fill"></b-icon>
       {{message}}
-    </div>
-
-
-    <!-- INSERIR NOVO USUÁRIO (transformar em componente...) -->
-    <b-button v-b-toggle.collapse-1 variant="primary" class="mr-2"><b-icon icon="person-plus-fill"></b-icon> New User</b-button>
-    <b-collapse id="collapse-1" class="mt-2 mb-3">
-        <div class="container">
-          <form id="tb-insert">
-
-            <div class="row">
-            <div class="col-md-6 m-auto">
-            <fieldset class="form-group">
-              <label>Name</label>
-              <input type="text" class="form-control"> <!-- v-model="description" -->
-            </fieldset>
-            <fieldset class="form-group">
-              <label>Email</label>
-              <input type="text" class="form-control">
-            </fieldset>
-            </div>
-            </div>
-
-            <div class="row">
-            <div class="col-md-6 m-auto">
-            <fieldset class="form-group">
-              <label>Password</label>
-              <input type="password" class="form-control">
-            </fieldset>
-            <fieldset class="form-group">
-              <label>User_Role</label>
-              <input type="text" class="form-control">
-            </fieldset>
-            </div>
-            </div>
-
-            <fieldset class="form-group">
-              <b-form-checkbox id="checkbox-1" name="checkbox-1">
-                Active this user?
-              </b-form-checkbox>
-            </fieldset>
-            <button class="btn btn-success mb-3" type="submit">
-              <b-icon icon="person-check-fill"></b-icon> Add User
-            </button>
-          </form>
-        </div>
-    </b-collapse>
-  
+    </div>  
 
     <!-- LISTA DE USUÁRIOS (transformar em componente...) -->  
-    <b-button v-b-toggle.collapse-2 variant="warning" class="mr-2"><b-icon icon="people-fill"></b-icon> All Users</b-button>
-    <b-collapse id="collapse-2" class="mt-2 mb-3">
         <table class="table">
           <thead>
             <tr>
@@ -86,7 +38,6 @@
             </tr>
           </tbody>
         </table>
-    </b-collapse>
     
 
 

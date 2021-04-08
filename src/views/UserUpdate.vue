@@ -98,8 +98,8 @@ export default {
         this.errors = [];
         if(!this.name) {
             this.errors.push("Nome é obrigatório.");
-        } else if(this.name.length > 15) {
-            this.errors.push("Nome possui mais de 15 caracteres.");
+        } else if(this.name.length < 5) {
+            this.errors.push("Nome deve possuir mais de 5 caracteres.");
         }
 
         if(this.errors.length === 0) {
