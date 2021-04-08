@@ -8,11 +8,21 @@ class UserDataService {
   retriveAllUsers() {
     return axios.get(`${user_api_url}/all-users`);
   }
+
+  retrieveUser(name, id ) { //email, password, user_role, active, 
+    return axios.get(`${user_api_url}/user-id=${id}`);
+  }
+
   deleteUser(name, id){
     return axios.delete(`${user_api_url}/delete-user=${id}`);
   }
-  addUser(user) {
-    return axios.post(`${user_api_url}/insert-user=${user}`);
+
+  updateUser(name, id, user) {
+    return axios.put(`${user_api_url}/update-user=${id}`, user);
+  }
+
+  createUser(name, user) {
+    return axios.post(`${user_api_url}/insert-user/`, user);
   }
 }
 
