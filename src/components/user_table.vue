@@ -11,7 +11,7 @@
         <table class="table">
           <thead>
             <tr>
-              <th>ID</th>
+              <!-- <th>ID</th> -->
               <!-- <th>Name</th> -->
               <th>Email</th>
               <!-- <th>Role</th>
@@ -22,7 +22,7 @@
           </thead>
           <tbody>
             <tr v-for="user in users" v-bind:key="user.id">
-              <td>{{user.id}}</td>
+              <!-- <td>{{user.id}}</td> -->
               <!-- <td>{{user.name}}</td> -->
               <td>{{user.email}}</td>
               <!-- <td>{{user.user_role}}</td>
@@ -31,7 +31,7 @@
                 <button class="btn btn-primary mr-2 mb-1" v-on:click="updateUserClick(user.id)">
                   <b-icon icon="person-lines-fill">Update</b-icon>
                 </button>
-                <button class="btn btn-danger mr-2" v-on:click="deleteUserClick(user.id)">
+                <button class="btn btn-danger mr-2 mb-1" v-on:click="deleteUserClick(user.id)">
                   <b-icon icon="trash-fill">Delete</b-icon>
                 </button>
               </td>

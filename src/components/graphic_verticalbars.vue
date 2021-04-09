@@ -1,8 +1,20 @@
+<template>
+  <div id="verticalbars" class="container mt-3 mb-3">
+    <GChart 
+      type="ColumnChart" 
+      :data="chartData" 
+      :options="chartOptions"
+      style="height: 500px;"
+    />
+  </div>
+</template>
+
 <script>
 import { GChart } from 'vue-google-charts';
 
 export default {
-  name:"GraphicTest",
+  
+  name:"GraphicVerticalBars",
 
   components:{
     GChart
@@ -20,7 +32,7 @@ export default {
       ],
       chartOptions: {
         chart: {
-          title: 'Company Performance',
+          title: 'Covid-19',
           subtitle: 'Sales, Expenses, and Profit: 2014-2017',
         }
       }

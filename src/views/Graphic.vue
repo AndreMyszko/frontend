@@ -1,17 +1,26 @@
 <template>
   <div id="graphic" class="pb-3">
     <h1>GRAPHIC</h1>
-    <GraphicTest />
+    <GraphicSingleBar />
+    <GraphicVerticalBar /> 
+    <GraphicHorizontalBars />
+    <GraphicDots />
   </div>
 </template>
 
 <script>
-import GraphicTest from "../components/graphic_test";
+import GraphicHorizontalBars from "../components/graphic_horizontalbars";
+import GraphicVerticalBar from "../components/graphic_verticalbars";
+import GraphicSingleBar from "../components/graphic_singlebar";
+import GraphicDots from "../components/graphic_dots";
 
 export default {
   name: "Graphic",
   components: {
-    GraphicTest,
+    GraphicHorizontalBars,
+    GraphicVerticalBar,
+    GraphicSingleBar,
+    GraphicDots,
   },
 };
 </script>
