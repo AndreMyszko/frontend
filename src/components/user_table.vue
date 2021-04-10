@@ -1,11 +1,31 @@
 <template>
   <div class="container">
 
-    <!-- MENSAGEM DE RETORNO DE MÉTODOS POST -->
+    <!-- MENSAGEM DE RETORNO DE MÉTODO DELETE -->
     <div v-if="message" class="alert alert-danger">
       <b-icon icon="info-square-fill"></b-icon>
       {{message}}
     </div>  
+
+    <!-- Input de busca na tabela user -->
+
+      <div class="row ml-1 mb-2">
+      <h3><b-icon icon="people-fill"></b-icon> All Users:</h3>
+      </div>
+
+      <div class="row mb-2">
+        <b-form inline class="col-md-6">
+          <b-input-group prepend="@" class="mb-2 mr-sm-2 mb-sm-0">
+            <b-form-input id="search" placeholder="search..."></b-form-input>
+          </b-input-group>
+          <b-button variant="primary"><b-icon icon="search"></b-icon></b-button>
+        </b-form>
+        <div class="col-md-6">
+          <b-button class="float-right" variant="success"><b-icon icon="person-plus-fill"></b-icon> Add User</b-button>
+        </div>
+      </div>
+ 
+
 
     <!-- LISTA DE USUÁRIOS (transformar em componente...) -->  
         <table class="table">

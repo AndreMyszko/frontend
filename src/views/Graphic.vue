@@ -1,10 +1,24 @@
 <template>
   <div id="graphic" class="pb-3">
     <h1>GRAPHIC</h1>
-    <GraphicSingleBar />
-    <GraphicVerticalBar /> 
-    <GraphicHorizontalBars />
-    <GraphicDots />
+    <!-- <div class="row p-0 m-0">
+      <div class="col-md-8">
+      </div>
+      <div class="col-md-4"> -->
+        <GraphicDots />
+      <!-- </div>
+    </div>
+    <div class='row p-0 m-0'>
+      <div class="col-md-4"> -->
+        <GraphicHorizontalBars />
+      <!-- </div>
+      <div class="col-md-4"> -->
+        <GraphicSingleBar />
+      <!-- </div>
+      <div class="col-md-4">-->
+        <GraphicVerticalBar /> 
+      <!--</div>
+    </div> -->
   </div>
 </template>
 

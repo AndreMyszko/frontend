@@ -1,10 +1,11 @@
 <template>
   <div id="verticalbars" class="container mt-3 mb-3">
-    <GChart 
-      type="ColumnChart" 
+    <GChart
+      :settings="{packages: ['bar']}"
       :data="chartData" 
       :options="chartOptions"
-      style="height: 500px;"
+      :createChart="(el, google) => new google.charts.Bar(el)"
+      @ready="onChartReady"
     />
   </div>
 </template>
@@ -20,23 +21,43 @@ export default {
     GChart
   },
   
+
   data () {
     return {
+      chartsLib: null,
       // Array will be automatically processed with visualization.arrayToDataTable function
       chartData: [
-        ['Year', 'Sales', 'Expenses', 'Profit'],
-        ['2014', 1000, 400, 200],
-        ['2015', 1170, 460, 250],
-        ['2016', 660, 1120, 300],
-        ['2017', 1030, 540, 350]
+        ['Mês', 'Casos', 'Recuperados', 'Mortes'],
+        ['Janeiro', 20000, 15000, 2000],
+        ['Fevereiro', 23000, 16000, 2500],
+        ['Março', 19000, 13000, 3000],
+        ['Abril', 19800, 13800, 3500]
       ],
-      chartOptions: {
+    }
+  },
+
+  computed: {
+    chartOptions () {
+      if (!this.chartsLib) return null
+      return this.chartsLib.charts.Bar.convertOptions({
         chart: {
-          title: 'Covid-19',
-          subtitle: 'Sales, Expenses, and Profit: 2014-2017',
-        }
-      }
+          title: 'Análise Geral - Amostra Mensal',
+          subtitle: 'Casos, Recuperadose e Mortes: Janeiro - Abril'
+        },
+        bars: 'vertical', // Required for Material Bar Charts.
+        hAxis: { format: 'decimal' },
+        height: 500,
+        colors: ['blue', 'green', 'red']      
+      })
+    }
+  },
+
+  methods: {
+    onChartReady (chart, google) {
+      this.chartsLib = google
     }
   }
+
+
 }
 </script>
