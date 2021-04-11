@@ -22,7 +22,7 @@ class UserDataService {
   }
 
   createUser(name, user) {
-    return axios.post(`${user_api_url}/insert-user/`, user);
+    return axios.post(`${user_api_url}/insert-user`, user);
   }
 }
 

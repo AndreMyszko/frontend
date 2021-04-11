@@ -4,19 +4,19 @@
 
         <div id="tblScope" class="container">
           <form @submit="validateAndSubmit">
-
             <div v-if="errors.length">
                 <div class="alert alert-warning" v-bind:key="index" v-for="(error, index) in errors"></div>
             </div>
 
-            <fieldset class="form-group col-md-6 m-auto">
+            <!-- não ficar mostrando id de banco se o email também é um valor único... -->
+            <!-- <fieldset class="form-group col-md-6 m-auto">
                 <label>Id</label>
                 <input type="text" class="form-control" v-model="id" disabled>
-            </fieldset>
-
+            </fieldset> -->
+            
             <fieldset class="form-group col-md-6 m-auto">
                 <label>Email</label>
-                <input type="text" class="form-control" v-model="email" disabled>
+                <input type="text" class="form-control" v-model="email" :disabled="disabled == 1" >
             </fieldset>
            
             <fieldset class="form-group col-md-6 m-auto">
@@ -30,9 +30,23 @@
             </fieldset>
 
             <fieldset class="form-group col-md-6 m-auto">
+                <b-form-group 
+                id="input-group" 
+                label="User Role:" 
+                label-for="input">
+                    <b-form-select
+                    id="input"
+                    v-model="user_role"
+                    :options="roles"
+                    required
+                    ></b-form-select>
+                </b-form-group>
+            </fieldset>
+
+            <!-- <fieldset class="form-group col-md-6 m-auto">
                 <label>User_Role</label>
                 <input type="text" class="form-control" v-model="user_role">
-            </fieldset>
+            </fieldset> -->
 
             <fieldset class="form-group">
               <b-form-checkbox id="checkbox-1" name="checkbox-1" v-model="active">
@@ -64,10 +78,12 @@ export default {
         name: "",
         email: "",
         password: "",
-        user_role: "",
+        user_role: null,
+        roles: [{text: '<-- select one -->', value: null}, 'user', 'admin'],
         active: "",
-        message: null,
 
+        disabled: 1,
+        message: null,
         instructor: "user",
         errors: [],
         };
@@ -82,11 +98,17 @@ export default {
     methods: {
         refreshUser() {
             UserService.retrieveUser(this.INSTRUCTOR, this.id).then(res => {
-            this.name = res.data.name;
-            this.email = res.data.email;
-            this.password = res.data.password;
-            this.user_role = res.data.user_role;
-            this.active = res.data.active;
+                if (this.id != -1) {
+                    this.name = res.data.name;
+                    this.email = res.data.email;
+                    this.password = res.data.password;
+                    this.user_role = res.data.user_role;
+                    this.active = res.data.active;
+                }
+                else{
+                    this.disabled = 0;
+                    this.active = false;
+                }
             });
         },
 
@@ -95,7 +117,7 @@ export default {
         this.errors = [];
         if(!this.name) {
             this.errors.push("Nome é obrigatório.");
-        } else if(this.name.length < 5) {
+        } else if(this.name.length < 4) {
             this.errors.push("Nome deve possuir mais de 5 caracteres.");
         }
 
@@ -110,7 +132,6 @@ export default {
                 })
                 .then(() => {
                     this.$router.push('/user');
-                    console.log(`create user --> ID:${this.id}`);
                 });
             } else {
                 UserService.updateUser(this.INSTRUCTOR, this.id, {

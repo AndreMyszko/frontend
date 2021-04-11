@@ -1,6 +1,7 @@
 <template>
   <div id="tblUser" class="container">
-      <h1><b-icon icon="people-fill"></b-icon> USERS</h1>
+
+    <h1><b-icon icon="people-fill"></b-icon> USERS</h1>
 
     <!-- MENSAGEM DE RETORNO DE MÉTODO DELETE -->
     <div v-if="message" class="alert alert-danger">
@@ -8,13 +9,10 @@
       {{message}}
     </div>  
 
-    <!-- Input de busca na tabela user -->
+    <!-- Scopo total tabela + stuffs -->
+    <div id="tblScope" class="container p-2">
 
-      <div class="row ml-1 mb-2">
-      </div>
-
-      <div id="tblScope" class="container p-2">
-
+      <!-- Input de busca na tabela user e AddUser-btn -->
       <div class="row mb-2">
         <b-form inline class="col-md-6">
           <b-input-group prepend="@" class="mb-2 mr-sm-2 mb-sm-0">
@@ -23,46 +21,45 @@
           <b-button variant="primary"><b-icon icon="search"></b-icon></b-button>
         </b-form>
         <div class="col-md-6">
-          <b-button class="float-right" variant="success"><b-icon icon="person-plus-fill"></b-icon> Add User</b-button>
+          <button class="btn btn-success float-right" v-on:click="insertUserClick()">
+            <b-icon icon="person-plus-fill"></b-icon> Add User
+          </button>
         </div>
       </div>
- 
+  
+      <!-- LISTA DE USUÁRIOS (transformar em componente...) -->  
+      <table class="table">
+        <thead>
+          <tr>
+            <!-- <th>ID</th> -->
+            <!-- <th>Name</th> -->
+            <th>Email</th>
+            <!-- <th>Role</th> -->
+            <!-- <th>Active</th> -->
+            <th><!--Remove--></th>
+            <th><!--Update--></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="user in users" v-bind:key="user.id">
+            <!-- <td>{{user.id}}</td> -->
+            <!-- <td>{{user.name}}</td> -->
+            <td>{{user.email}}</td>
+            <!-- <td>{{user.user_role}}</td> -->
+            <!-- <td>{{user.active}}</td> -->
+            <td>
+              <button class="btn btn-primary mr-2 mb-1" v-on:click="updateUserClick(user.id)">
+                <b-icon icon="person-lines-fill">Update</b-icon>
+              </button>
+              <button class="btn btn-danger mr-2 mb-1" v-on:click="deleteUserClick(user.id)">
+                <b-icon icon="trash-fill">Delete</b-icon>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
-
-    <!-- LISTA DE USUÁRIOS (transformar em componente...) -->  
-        <table class="table">
-          <thead>
-            <tr>
-              <!-- <th>ID</th> -->
-              <!-- <th>Name</th> -->
-              <th>Email</th>
-              <!-- <th>Role</th> -->
-              <!-- <th>Active</th> -->
-              <th><!--Remove--></th>
-              <th><!--Update--></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="user in users" v-bind:key="user.id">
-              <!-- <td>{{user.id}}</td> -->
-              <!-- <td>{{user.name}}</td> -->
-              <td>{{user.email}}</td>
-              <!-- <td>{{user.user_role}}</td> -->
-              <!-- <td>{{user.active}}</td> -->
-              <td>
-                <button class="btn btn-primary mr-2 mb-1" v-on:click="updateUserClick(user.id)">
-                  <b-icon icon="person-lines-fill">Update</b-icon>
-                </button>
-                <button class="btn btn-danger mr-2 mb-1" v-on:click="deleteUserClick(user.id)">
-                  <b-icon icon="trash-fill">Delete</b-icon>
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-    
-
-</div>
+    </div>
 
   </div>
 </template>
@@ -109,6 +106,10 @@ export default {
       console.log(id);
     },
 
+    //Em construção....
+    insertUserClick() {
+      this.$router.push(`/user/-1`);
+    },
   },
   
   created() {

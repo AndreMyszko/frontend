@@ -14,12 +14,12 @@
       @sliding-end="onSlideEnd"
     >
 
-      <b-carousel-slide class="slide" img-src="https://img.ibxk.com.br/2019/04/11/11173247124498.jpg?w=1120&h=420&mode=crop&scale=both">
-        <h1 >Vida longa ao SUS</h1>
-      </b-carousel-slide>
-
       <b-carousel-slide class="slide" img-src="https://www.sheilds.org/wp-content/uploads/2020/03/output-onlinepngtools-3-1.png">
         <h1>Cuidado com o Corona</h1>
+      </b-carousel-slide>
+
+      <b-carousel-slide class="slide" img-src="https://img.ibxk.com.br/2019/04/11/11173247124498.jpg?w=1120&h=420&mode=crop&scale=both">
+        <h1 >Vida longa ao SUS</h1>
       </b-carousel-slide>
 
       <b-carousel-slide class="slide" img-src="https://usm.maine.edu/sites/default/files/healthy-huskies/PageHeader_Coronavirus.jpg">
