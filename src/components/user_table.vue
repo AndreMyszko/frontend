@@ -36,8 +36,8 @@
               <!-- <th>ID</th> -->
               <!-- <th>Name</th> -->
               <th>Email</th>
-              <!-- <th>Role</th>
-              <th>Active</th> -->
+              <!-- <th>Role</th> -->
+              <!-- <th>Active</th> -->
               <th><!--Remove--></th>
               <th><!--Update--></th>
             </tr>
@@ -47,8 +47,8 @@
               <!-- <td>{{user.id}}</td> -->
               <!-- <td>{{user.name}}</td> -->
               <td>{{user.email}}</td>
-              <!-- <td>{{user.user_role}}</td>
-              <td>{{user.active}}</td> -->
+              <!-- <td>{{user.user_role}}</td> -->
+              <!-- <td>{{user.active}}</td> -->
               <td>
                 <button class="btn btn-primary mr-2 mb-1" v-on:click="updateUserClick(user.id)">
                   <b-icon icon="person-lines-fill">Update</b-icon>
@@ -118,11 +118,6 @@ export default {
 </script>
 
 <style scoped>
-/* #tb-insert{
-  background-color: rgba(59, 145, 224, 0.3);
-  border: 1px, solid, blue;
-  border-radius: 5px;
-} */
 
 #tblScope{
   background-color: rgba(59, 145, 224, 0.3);
