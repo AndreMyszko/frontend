@@ -1,5 +1,6 @@
 <template>
-  <div class="container">
+  <div id="tblUser" class="container">
+      <h1><b-icon icon="people-fill"></b-icon> USERS</h1>
 
     <!-- MENSAGEM DE RETORNO DE MÉTODO DELETE -->
     <div v-if="message" class="alert alert-danger">
@@ -10,8 +11,9 @@
     <!-- Input de busca na tabela user -->
 
       <div class="row ml-1 mb-2">
-      <h3><b-icon icon="people-fill"></b-icon> All Users:</h3>
       </div>
+
+      <div id="tblScope" class="container p-2">
 
       <div class="row mb-2">
         <b-form inline class="col-md-6">
@@ -60,7 +62,7 @@
         </table>
     
 
-
+</div>
 
   </div>
 </template>
@@ -116,9 +118,16 @@ export default {
 </script>
 
 <style scoped>
-#tb-insert{
+/* #tb-insert{
   background-color: rgba(59, 145, 224, 0.3);
   border: 1px, solid, blue;
   border-radius: 5px;
+} */
+
+#tblScope{
+  background-color: rgba(59, 145, 224, 0.3);
+  border: 1px, solid, blue;
+  border-radius: 5px;
+
 }
 </style>

@@ -1,6 +1,5 @@
 <template>
   <div id="user" class="pb-3">
-    <h1>USER</h1>
     <UserTable />
   </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <div id="graphic" class="pb-3">
-    <h1>GRAPHIC</h1>
+    <h1><b-icon icon="graph-up"></b-icon> GRAPHIC</h1>
     <!-- <div class="row p-0 m-0">
       <div class="col-md-8">
       </div>

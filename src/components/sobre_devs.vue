@@ -4,7 +4,7 @@
       <b-card id="cardDev" title="Desenvolvedores">
         <b-card-text>
           Aqui são apresentados os desenvolvedores envolvidos neste projeto,
-          assim como suas informações, como habilidades e contatos:
+          assim como suas informações, como habilidades e contato:
         </b-card-text>
         <b-nav tabs align="center">
           <div>
@@ -16,7 +16,8 @@
             ></b-img>
             <h5 class="mb-0">André Myszko</h5>
             <hr class="mt-0 mb-0 ml-2 mr-2" />
-            <p>Eng. de Software</p>
+            <p class="m-0 p-0">Eng. de Software</p>
+            <h4 href="#"> <b-icon icon="youtube"></b-icon> <b-icon icon="linkedin"></b-icon> <b-icon icon="facebook"></b-icon> <b-icon icon="instagram"></b-icon> </h4> 
           </div>
           <div>
             <b-img
@@ -27,7 +28,8 @@
             ></b-img>
             <h5 class="mb-0">José Trugilio</h5>
             <hr class="mt-0 mb-0 ml-2 mr-2" />
-            <p>Eng. de Software</p>
+            <p class="m-0 p-0">Eng. de Software</p>
+            <h4 href="#"> <b-icon icon="youtube"></b-icon> <b-icon icon="linkedin"></b-icon> <b-icon icon="facebook"></b-icon> <b-icon icon="instagram"></b-icon> </h4> 
           </div>
           <div>
             <b-img
@@ -38,7 +40,8 @@
             ></b-img>
             <h5 class="mb-0">Greici Evani</h5>
             <hr class="mt-0 mb-0 ml-2 mr-2" />
-            <p>Eng. de Software</p>
+            <p class="m-0 p-0">Eng. de Software</p>
+            <h4 href="#"> <b-icon icon="youtube"></b-icon> <b-icon icon="linkedin"></b-icon> <b-icon icon="facebook"></b-icon> <b-icon icon="instagram"></b-icon> </h4> 
           </div>
           <div>
             <b-img
@@ -49,7 +52,8 @@
             ></b-img>
             <h5 class="mb-0">David Caron</h5>
             <hr class="mt-0 mb-0 ml-2 mr-2" />
-            <p>Eng. de Software</p>
+            <p class="m-0 p-0">Eng. de Software</p>
+            <h4 href="#"> <b-icon icon="youtube"></b-icon> <b-icon icon="linkedin"></b-icon> <b-icon icon="facebook"></b-icon> <b-icon icon="instagram"></b-icon> </h4> 
           </div>
         </b-nav>
         <b-card-text class="mt-3"

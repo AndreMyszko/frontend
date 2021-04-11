@@ -1,6 +1,6 @@
 <template>
   <div id="about">
-    <h1>SOBRE</h1>
+    <h1><b-icon icon="info-circle-fill"></b-icon> SOBRE</h1>
     <SobreProjeto />
     <SobreDev />
   </div>

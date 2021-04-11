@@ -4,7 +4,7 @@
       <b-nav-item>
         |
         <router-link to="/"
-          ><b-icon icon="emoji-laughing"></b-icon> Home</router-link
+          ><b-icon icon="house-fill"></b-icon> Home</router-link
         >
         |
       </b-nav-item>

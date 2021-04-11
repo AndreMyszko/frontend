@@ -1,8 +1,8 @@
 <template>
     <div id="update-user" class="pb-3">
-        <h1>Update User</h1>
+        <h1><b-icon icon="person-lines-fill"></b-icon> Update</h1>  
 
-        <div class="container">
+        <div id="tblScope" class="container">
           <form @submit="validateAndSubmit">
 
             <div v-if="errors.length">
@@ -14,38 +14,35 @@
                 <input type="text" class="form-control" v-model="id" disabled>
             </fieldset>
 
-
-            <div class="row">
-                <div class="col-md-6 m-auto">
-                    <fieldset class="form-group">
-                    <label>Name</label>
+            <fieldset class="form-group col-md-6 m-auto">
+                <label>Email</label>
+                <input type="text" class="form-control" v-model="email" disabled>
+            </fieldset>
+           
+            <fieldset class="form-group col-md-6 m-auto">
+                <label>Name</label>
                 <input type="text" class="form-control" v-model="name"> 
-                </fieldset>
-                <fieldset class="form-group">
-                    <label>Email</label>
-                    <input type="text" class="form-control" v-model="email">
-                </fieldset>
-                </div>
-            </div>
+            </fieldset>
 
-            <div class="row">
-                <div class="col-md-6 m-auto">
-                <fieldset class="form-group">
-                    <label>Password</label>
-                    <input type="password" class="form-control" v-model="password">
-                </fieldset>
-                <fieldset class="form-group">
-                    <label>User_Role</label>
-                    <input type="text" class="form-control" v-model="user_role">
-                </fieldset>
-                </div>
-            </div>
+            <fieldset class="form-group col-md-6 m-auto">
+                <label>Password</label>
+                <input type="password" class="form-control" v-model="password">
+            </fieldset>
+
+            <fieldset class="form-group col-md-6 m-auto">
+                <label>User_Role</label>
+                <input type="text" class="form-control" v-model="user_role">
+            </fieldset>
 
             <fieldset class="form-group">
               <b-form-checkbox id="checkbox-1" name="checkbox-1" v-model="active">
                 Active this user?
               </b-form-checkbox>
             </fieldset>
+            <router-link to="/user" class="btn btn-danger mb-3 mr-3">
+              <b-icon icon="arrow-left-square-fill"></b-icon> Back
+            </router-link>
+
 
             <button class="btn btn-success mb-3" type="submit">
               <b-icon icon="person-check-fill"></b-icon> Update User
@@ -159,5 +156,13 @@ export default {
     rgba(143, 200, 238, 0.5)
   );
 }
+
+#tblScope{
+  background-color: rgba(59, 145, 224, 0.3);
+  border: 1px, solid, blue;
+  border-radius: 5px;
+
+}
+
 </style>
 
