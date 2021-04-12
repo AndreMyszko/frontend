@@ -15,6 +15,7 @@
       <!-- Input de busca na tabela user e AddUser-btn -->
       <div class="row mb-2">
         <div class="col-md-6">
+          <h3 class="float-left"><b-icon icon="search"></b-icon>...</h3>
           <input id="search" class="float-left" type="text" placeholder="search for @email..." v-model="search"/>
         </div>
 
@@ -133,5 +134,12 @@ export default {
   border: 1px, solid, blue;
   border-radius: 5px;
 
+}
+
+#search{
+  background-color: black;
+  border: 3px solid greenyellow;
+  border-radius: 5px;
+  color: greenyellow;
 }
 </style>
