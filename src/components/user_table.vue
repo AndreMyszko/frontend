@@ -14,12 +14,10 @@
 
       <!-- Input de busca na tabela user e AddUser-btn -->
       <div class="row mb-2">
-        <b-form inline class="col-md-6">
-          <b-input-group prepend="@" class="mb-2 mr-sm-2 mb-sm-0">
-            <b-form-input id="search" placeholder="search..."></b-form-input>
-          </b-input-group>
-          <b-button variant="primary"><b-icon icon="search"></b-icon></b-button>
-        </b-form>
+        <div class="col-md-6">
+          <input id="search" class="float-left" type="text" placeholder="search for @email..." v-model="search"/>
+        </div>
+
         <div class="col-md-6">
           <button class="btn btn-success float-right" v-on:click="insertUserClick()">
             <b-icon icon="person-plus-fill"></b-icon> Add User
@@ -41,7 +39,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="user in users" v-bind:key="user.id">
+          <tr v-for="user in userFilter" v-bind:key="user.id">
             <!-- <td>{{user.id}}</td> -->
             <!-- <td>{{user.name}}</td> -->
             <td>{{user.email}}</td>
@@ -75,6 +73,7 @@ export default {
       users: [],
       message: null,
       instructor: "user",
+      search: ""
     };
   },
 
@@ -115,6 +114,15 @@ export default {
   created() {
     this.refreshUser();
   },
+
+  computed:{
+    userFilter: function() {
+      return this.users.filter((user) => {
+          return user.email.match(this.search);
+      });
+    }
+  },
+
 };
 </script>
 
