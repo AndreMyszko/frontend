@@ -5,7 +5,7 @@
       <div class="col-md-8">
       </div>
       <div class="col-md-4"> -->
-        <GraphicDots />
+       <GraphicVerticalBar />  
       <!-- </div>
     </div>
     <div class='row p-0 m-0'>
@@ -16,7 +16,7 @@
         <GraphicSingleBar />
       <!-- </div>
       <div class="col-md-4">-->
-        <GraphicVerticalBar /> 
+        <GraphicDots />
       <!--</div>
     </div> -->
   </div>

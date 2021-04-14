@@ -4,8 +4,9 @@
 
         <div id="tblScope" class="container">
           <form @submit="validateAndSubmit">
+              <br>
             <div v-if="errors.length">
-                <div class="alert alert-warning" v-bind:key="index" v-for="(error, index) in errors"></div>
+                <div class="alert alert-danger mt-2" v-bind:key="index" v-for="(error, index) in errors">{{errors.toString()}}</div>
             </div>
 
             <!-- não ficar mostrando id de banco se o email também é um valor único... -->
@@ -115,10 +116,18 @@ export default {
         validateAndSubmit(e) {
         e.preventDefault();
         this.errors = [];
-        if(!this.name) {
+        if (!this.email) {
+            this.errors.push("O email é obrigatório.");
+        } else if(!this.name) {
             this.errors.push("Nome é obrigatório.");
         } else if(this.name.length < 4) {
-            this.errors.push("Nome deve possuir mais de 5 caracteres.");
+            this.errors.push("Nome deve possuir mais de 4 caracteres.");
+        } else if(!this.password){
+            this.errors.push("Necessário escolher uma senha.")
+        } else if(this.password.length < 6){
+            this.errors.push("A senha deve conter ao mesnos 6 caracteres.")
+        }else{
+            this.errors.length === 0;
         }
 
         if(this.errors.length === 0) {
