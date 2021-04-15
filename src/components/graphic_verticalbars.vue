@@ -12,7 +12,7 @@
 
 <script>
 import { GChart } from 'vue-google-charts';
-
+import CrawlerService from '../service/crawler_service';
 
 export default {
   
@@ -25,6 +25,11 @@ export default {
 
   data () {
     return {
+      //ATRIBUTOS DO CRAWLER:
+      crawler: [],
+      instructor: "crawler",
+
+      //GRÁFICO DO GOOGLE:
       chartsLib: null,
       // Array will be automatically processed with visualization.arrayToDataTable function
       chartData: [
@@ -54,10 +59,25 @@ export default {
   },
 
   methods: {
+    //carregamento dos dados do crawler:
+    crawlerData() {
+      CrawlerService.retriveAllData(this.instructor)
+        .then(response => {
+          this.crawler = response.data;
+          console.log(response.data);
+        });
+    },
+
+    //carregamento do gráfico:
     onChartReady (chart, google) {
       this.chartsLib = google
     }
-  }
+  },
+
+  created() {
+      this.crawlerData();
+  },
+
 
 
 }
