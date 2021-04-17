@@ -1,5 +1,5 @@
 <template>
-  <div id="horizontalbars" class="container mt-3 mb-3">
+  <div id="horizontalbars" class="container">
   <GChart
     :settings="{packages: ['bar']}"    
     :data="chartData"
@@ -46,7 +46,7 @@ export default {
         bars: 'horizontal', // Required for Material Bar Charts.
         hAxis: { format: 'decimal' },
         height: 500,
-        colors: ['blue', 'green', 'red']
+        //colors: ['blue', 'green', 'red']
       })
     }
   },

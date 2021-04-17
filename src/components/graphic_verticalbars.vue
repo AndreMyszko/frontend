@@ -1,5 +1,5 @@
 <template>
-  <div id="verticalbars" class="container mt-3 mb-3">
+  <div id="verticalbars" class="container mt-3">
     <GChart
       :settings="{packages: ['bar']}"
       :data="chartData" 
