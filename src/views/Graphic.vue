@@ -15,7 +15,7 @@
         
       <!-- </div>
       <div class="col-md-4"> -->
-        <GraphicSingleBar />
+        <!-- <GraphicSingleBar /> -->
       <!-- </div>
       <div class="col-md-4">-->
       <!--</div>
@@ -26,7 +26,7 @@
 <script>
 import GraphicHorizontalBars from "../components/graphic_horizontalbars";
 // import GraphicVerticalBar from "../components/graphic_verticalbars";
-import GraphicSingleBar from "../components/graphic_singlebar";
+// import GraphicSingleBar from "../components/graphic_singlebar";
 import GraphicDots from "../components/graphic_dots";
 
 export default {
@@ -34,7 +34,7 @@ export default {
   components: {
     GraphicHorizontalBars,
     // GraphicVerticalBar,
-    GraphicSingleBar,
+    // GraphicSingleBar,
     GraphicDots,
   },
 };
