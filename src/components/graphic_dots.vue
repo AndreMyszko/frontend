@@ -36,6 +36,8 @@
 
 <script>
 import { GChart } from "vue-google-charts";
+import CrawlerService from '../service/crawler_service';
+
 export default {
   name: "GraphicPie",
   components: {
@@ -43,6 +45,12 @@ export default {
   },
   data() {
     return {
+      crawler: [],
+      
+      
+
+      instructor: "crawler",
+
       // Array will be automatically processed with visualization.arrayToDataTable function
       chartData: [
         ["ID", "Temperature"],
@@ -62,18 +70,44 @@ export default {
       ],
       chartData3: [
         ["ID", "Temperature"],
-        ["za", 80],
-        ["zb", 79],
-        ["ezc", 78],
-        ["ed", 72],
-        ["ee", 68]
+        ["za", 200],
+        ["zb", 150],
+        ["ezc", 100],
+        ["ed", 50],
+        ["ee", 25]
       ],
 
 
       chartOptions: {
         // colorAxis: { colors: ["yellow", "red"] }
       }
-    };
-  }
+    }
+  },
+
+  computed() {
+
+  },
+
+  methods: {
+    //carregamento dos dados do crawler:
+    crawlerData() {
+      CrawlerService.retriveAllData(this.instructor)
+        .then(response => {
+          this.crawler = response.data;
+          
+        });
+    },
+
+    onChartReady (chart, google) {
+      this.chartsLib = google
+    }
+  },
+  
+  created() {
+      this.crawlerData();
+  },
+
+
+ 
 };
 </script>

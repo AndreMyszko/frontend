@@ -64,7 +64,6 @@ export default {
       CrawlerService.retriveAllData(this.instructor)
         .then(response => {
           this.crawler = response.data;
-          console.log(response.data);
         });
     },
 
