@@ -61,7 +61,8 @@ export default {
     //carregamento dos dados do crawler:
     crawlerData() {
       CrawlerService.retriveAllData(this.instructor)
-        .then(response => { this.crawler = JSON.stringify(response.data)        
+        .then(response => { 
+          this.crawler = response.data;        
         });
     },
 

@@ -1,31 +1,40 @@
 <template>
   <div id="graphic" class="pb-3">
     <h1><b-icon icon="graph-up"></b-icon> GRAPHIC</h1>
-        <!-- <div class="inline m-auto col-sm-10 col-md-10">
-          <b-form-input v-model="text" placeholder="Entre com o nome da cidade"></b-form-input>
-        </div>
-        <br> -->
-        
-        <!-- <GraphicVerticalBar />   -->
-        <GraphicHorizontalBars />
-        <GraphicDots />
-    <!-- <div class="row p-0 m-0">
-      <div class="col-md-8">
+    <!-- <GraphicVerticalBar />   -->
+    <GraphicHorizontalBars />
+    <GraphicDots />
+    <!-- <GraphicSingleBar /> -->
+
+    <h1><b-icon icon="table"></b-icon> TABLE</h1>
+    <div class="container card mt-2">
+      <div class="col-md-6">
+        <h3 class="float-left"><b-icon icon="search"></b-icon>...</h3>
+        <input id="search" class="float-left" type="text" placeholder="search for City..." v-model="search"/>
       </div>
-      <div class="col-md-4"> -->
-      <!-- </div>
+
+      <h3>Tabela Completa das Amostras</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Cidade</th>
+            <th>Casos</th> 
+            <th>Obitos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="c in crawler" v-bind:key="c.id" class="">
+            <td>{{c.data}}</td>
+            <td>{{c.cidade}}</td>
+            <td>{{c.confirmado}}</td>
+            <td>{{c.obito}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <div class='row p-0 m-0'>
-      <div class="col-md-4"> -->
-        
-      <!-- </div>
-      <div class="col-md-4"> -->
-        <!-- <GraphicSingleBar /> -->
-      <!-- </div>
-      <div class="col-md-4">-->
-      <!--</div>
-    </div> -->
-    <br>
+
+    <h1><b-icon icon="journal-text"></b-icon> JSON</h1>
     <div id="json" class="col-sm-10 col-md-10 card m-auto">
       <h3>Json Data:</h3>
       {{crawler}}
@@ -52,7 +61,7 @@ export default {
   data() {
     return {
       crawler: [],
-      text: ""
+      search: "",
     }
   },
 
@@ -69,7 +78,17 @@ export default {
 
   created() {
       this.crawlerData();
+      this.cityFilter();
   },
+
+  computed:{
+    cityFilter() {
+      return this.crawler.filter((crawler) => {
+          return crawler.cidade.match(this.search);
+      });
+    }
+  },
+
 
 
 
