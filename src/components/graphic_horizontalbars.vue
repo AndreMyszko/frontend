@@ -24,17 +24,19 @@ export default {
 
   data () {
     return {
-      crawler: [],
       instructor: "crawler",
+      crawler: [],
+      obitos_val: 0,
+      casos_val: 0,
+      data_val: "",
 
       chartsLib: null, 
       // Array will be automatically processed with visualization.arrayToDataTable function
       chartData: [
-        ['Dias', 'Casos', 'Recuperados', 'Mortes'],
-        ['01/01/2021', 10000, 5000, 200],
-        ['01/02/2021', 11700, 4600, 250],
-        ['01/03/2021', 11600, 5120, 300],
-        ['01/04/2021', 10300, 5040, 350]
+        ['Dias', 'Casos', 'Mortes'],
+        ['16/04/2021', 143479, 3956],
+        ['18/04/2021', 143479, 3956],
+        ['20/03/2021', 143479, 3956],
       ],
     }
   },
@@ -44,8 +46,8 @@ export default {
       if (!this.chartsLib) return null
       return this.chartsLib.charts.Bar.convertOptions({
         chart: {
-          title: 'Análise Geral - Amostra Diária',
-          subtitle: 'Casos, Recuperados, e Mortes: 01/01/2021 - 01/04/2021',
+          title: 'Amostras - Curitiba',
+          subtitle: 'Casos, Recuperados, e Mortes: 16/04/2021 - 22/04/2021',
         },
         bars: 'horizontal', // Required for Material Bar Charts.
         hAxis: { format: 'decimal' },
@@ -59,9 +61,7 @@ export default {
     //carregamento dos dados do crawler:
     crawlerData() {
       CrawlerService.retriveAllData(this.instructor)
-        .then(response => {
-          this.crawler = response.data;
-          console.log(response.data);
+        .then(response => { this.crawler = JSON.stringify(response.data)        
         });
     },
 

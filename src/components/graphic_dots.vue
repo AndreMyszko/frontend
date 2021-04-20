@@ -1,7 +1,8 @@
 <template>
   <div id="pie" class="row container m-auto ">
 
-    <div class="col-lg-4 col-md-12 m-0 p-0">
+    <div class="col-lg-4 col-md-12 m-0 p-0 bg-light mt-2">
+    <h3>Curitiba - 16/04/2021</h3>
     <GChart      
       type="PieChart"
       :data="chartData"
@@ -10,7 +11,8 @@
     />
     </div>
 
-    <div class="col-lg-4 col-md-12 m-0 p-0">
+    <div class="col-lg-4 col-md-12 m-0 p-0 bg-light mt-2">
+    <h3>Curitiba - 18/04/2021</h3>
     <GChart      
       type="PieChart"
       :data="chartData2"
@@ -19,7 +21,8 @@
     />
     </div>
 
-    <div class="col-lg-4 col-md-12 m-0 p-0">
+    <div class="col-lg-4 col-md-12 m-0 p-0 bg-light mt-2">
+    <h3>Curitiba - 22/04/2021</h3>
     <GChart      
       type="PieChart"
       :data="chartData3"
@@ -53,28 +56,19 @@ export default {
 
       // Array will be automatically processed with visualization.arrayToDataTable function
       chartData: [
-        ["ID", "Temperature"],
-        ["a", 80],
-        ["b", 10],
-        ["c", 10],
-        ["d", 7],
-        ["e", 8]
+        ["Status", "100k habitantes"],
+        ["Casos", 7364],
+        ["Obitos", 203]
       ],
       chartData2: [
-        ["ID", "Temperature"],
-        ["za", 80],
-        ["zb", 79],
-        ["zc", 78],
-        ["d", 72],
-        ["e", 68]
+        ["Status", "100k habitantes"],
+        ["Casos", 7364],
+        ["Obitos", 203]
       ],
       chartData3: [
-        ["ID", "Temperature"],
-        ["za", 200],
-        ["zb", 150],
-        ["ezc", 100],
-        ["ed", 50],
-        ["ee", 25]
+        ["Status", "100k habitantes"],
+        ["Casos", 7364],
+        ["Obitos", 203]
       ],
 
 
@@ -84,7 +78,7 @@ export default {
     }
   },
 
-  computed() {
+  computed: {
 
   },
 
@@ -106,6 +100,7 @@ export default {
   created() {
       this.crawlerData();
   },
+
 
 
  

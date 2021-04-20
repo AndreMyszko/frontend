@@ -117,7 +117,7 @@ export default {
   },
 
   computed:{
-    userFilter: function() {
+    userFilter() {
       return this.users.filter((user) => {
           return user.email.match(this.search);
       });
