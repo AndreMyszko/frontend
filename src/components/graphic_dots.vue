@@ -1,7 +1,7 @@
 <template>
   <div id="pie" class="row container m-auto ">
 
-    <div class="col-lg-4 col-md-12 m-0 p-0 bg-light mt-2">
+    <div class="col-lg-4 col-md-12 m-0 p-0 bg-light">
     <h3>Curitiba - 16/04/2021</h3>
     <input type="hidden" value="crawler.data" id="idteste">
     <input type="hidden" v-for="c in cityFilter" v-bind:key="c.id">
@@ -13,7 +13,7 @@
     />
     </div>
 
-    <div class="col-lg-4 col-md-12 m-0 p-0 bg-light mt-2">
+    <div class="col-lg-4 col-md-12 m-0 p-0 bg-light">
     <h3>Curitiba - 18/04/2021</h3>
     <GChart      
       type="PieChart"
@@ -23,7 +23,7 @@
     />
     </div>
 
-    <div class="col-lg-4 col-md-12 m-0 p-0 bg-light mt-2">
+    <div class="col-lg-4 col-md-12 m-0 p-0 bg-light">
     <h3>Curitiba - 22/04/2021</h3>
     <GChart      
       type="PieChart"
