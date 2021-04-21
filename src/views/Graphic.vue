@@ -1,46 +1,64 @@
 <template>
   <div id="graphic" class="pb-3">
+
     <h1><b-icon icon="graph-up"></b-icon> GRAPHIC</h1>
     <!-- <GraphicVerticalBar />   -->
     <GraphicHorizontalBars />
     <GraphicDots />
     <!-- <GraphicSingleBar /> -->
-
-    <h1><b-icon icon="table"></b-icon> TABLE</h1>
+    
     <div class="container card mt-2">
-      <div class="col-md-6 mt-2">
-        <h3 class="float-left"><b-icon icon="search"></b-icon>...</h3>
-        <input id="search" class="float-left" type="text" placeholder="search for City..." v-model="search"/>
+      <div class="col-md-12">
+
+      <div class="row mt-2 mb-2">
+          <h3 class="float-left ml-2 mr-1"><b-icon icon="search"></b-icon>...</h3>
+          <input id="search" class="float-left" type="text" placeholder="search for City..." v-model="search"/>
+          <b-button class="ml-2" v-b-toggle.collapse-1 variant="primary"><b-icon icon="table"></b-icon> Tabela</b-button>
+          <b-button class="ml-2" v-b-toggle.collapse-2 variant="dark"><b-icon icon="journal-text"></b-icon> JSON</b-button>
       </div>
 
-      <h3>Tabela Completa das Amostras</h3>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Data</th>
-            <th>Cidade</th>
-            <th>Casos</th> 
-            <th>Obitos</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="c in cityFilter" v-bind:key="c.id">
-            <td>{{c.data}}</td>
-            <td>{{c.cidade}}</td>
-            <td>{{c.confirmado}}</td>
-            <td>{{c.obito}}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div>
+        <b-collapse id="collapse-1" class="mt-2">
+          <b-card>
+            <h1><b-icon icon="table"></b-icon> TABLE</h1>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Cidade</th>
+                  <th>Casos</th> 
+                  <th>Obitos</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="c in cityFilter" v-bind:key="c.id">
+                  <td>{{c.data}}</td>
+                  <td>{{c.cidade}}</td>
+                  <td>{{c.confirmado}}</td>
+                  <td>{{c.obito}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </b-card>
+        </b-collapse>
+      </div>
+
+      <div>
+        <b-collapse id="collapse-2" class="mt-2">
+          <b-card>
+            <h1><b-icon icon="journal-text"></b-icon> JSON</h1>
+            <div id="json" class="card m-auto">
+              <div v-for="c in cityFilter" v-bind:key="c.id">
+                {{c}}
+              </div>
+            </div> 
+          </b-card>
+        </b-collapse>
+      </div>
+
     </div>
 
-    <h1><b-icon icon="journal-text"></b-icon> JSON</h1>
-    <div id="json" class="col-sm-10 col-md-10 card m-auto">
-      <h3>Json Data:</h3>
-      <div v-for="c in cityFilter" v-bind:key="c.id">
-        {{c}}
-     </div>
-    </div> 
+  </div>
   </div>
 </template>
 
