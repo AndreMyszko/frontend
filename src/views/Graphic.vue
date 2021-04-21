@@ -8,7 +8,7 @@
 
     <h1><b-icon icon="table"></b-icon> TABLE</h1>
     <div class="container card mt-2">
-      <div class="col-md-6">
+      <div class="col-md-6 mt-2">
         <h3 class="float-left"><b-icon icon="search"></b-icon>...</h3>
         <input id="search" class="float-left" type="text" placeholder="search for City..." v-model="search"/>
       </div>
@@ -24,7 +24,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="c in crawler" v-bind:key="c.id" class="">
+          <tr v-for="c in cityFilter" v-bind:key="c.id">
             <td>{{c.data}}</td>
             <td>{{c.cidade}}</td>
             <td>{{c.confirmado}}</td>
@@ -37,7 +37,9 @@
     <h1><b-icon icon="journal-text"></b-icon> JSON</h1>
     <div id="json" class="col-sm-10 col-md-10 card m-auto">
       <h3>Json Data:</h3>
-      {{crawler}}
+      <div v-for="c in cityFilter" v-bind:key="c.id">
+        {{c}}
+     </div>
     </div> 
   </div>
 </template>
@@ -55,13 +57,21 @@ export default {
     GraphicHorizontalBars,
     // GraphicVerticalBar,
     // GraphicSingleBar,
-    GraphicDots,
+    GraphicDots
   },
 
   data() {
     return {
       crawler: [],
       search: "",
+    };
+  },
+
+  computed:{
+    cityFilter() {
+      return this.crawler.filter((c) => {
+        return c.cidade.match(this.search);
+      });
     }
   },
 
@@ -71,25 +81,13 @@ export default {
     CrawlerService.retriveAllData(this.instructor)
       .then(response => {
         this.crawler = response.data;
-        
       });
     },
   },
 
   created() {
       this.crawlerData();
-      this.cityFilter();
   },
-
-  computed:{
-    cityFilter() {
-      return this.crawler.filter((crawler) => {
-          return crawler.cidade.match(this.search);
-      });
-    }
-  },
-
-
 
 
 };
@@ -107,4 +105,11 @@ export default {
   color: greenyellow;
   background-color: black;
 }
+#search{
+  background-color: black;
+  border: 3px solid greenyellow;
+  border-radius: 5px;
+  color: greenyellow;
+}
+
 </style>

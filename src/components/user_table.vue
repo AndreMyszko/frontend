@@ -119,7 +119,7 @@ export default {
   computed:{
     userFilter() {
       return this.users.filter((user) => {
-          return user.email.match(this.search);
+        return user.email.match(this.search);
       });
     }
   },

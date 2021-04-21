@@ -3,6 +3,8 @@
 
     <div class="col-lg-4 col-md-12 m-0 p-0 bg-light mt-2">
     <h3>Curitiba - 16/04/2021</h3>
+    <input type="hidden" value="crawler.data" id="idteste">
+    <input type="hidden" v-for="c in cityFilter" v-bind:key="c.id">
     <GChart      
       type="PieChart"
       :data="chartData"
@@ -32,9 +34,6 @@
     </div>
 
   </div>
-
-
-  
 </template>
 
 <script>
@@ -49,10 +48,8 @@ export default {
   data() {
     return {
       crawler: [],
-      
-      
-
       instructor: "crawler",
+      obito: "",
 
       // Array will be automatically processed with visualization.arrayToDataTable function
       chartData: [
@@ -88,21 +85,12 @@ export default {
       CrawlerService.retriveAllData(this.instructor)
         .then(response => {
           this.crawler = response.data;
-          
         });
     },
-
-    onChartReady (chart, google) {
-      this.chartsLib = google
-    }
   },
   
   created() {
       this.crawlerData();
   },
-
-
-
- 
 };
 </script>
