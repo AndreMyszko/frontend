@@ -5,7 +5,9 @@
     <!-- <GraphicVerticalBar />   -->
     <GraphicHorizontalBars />
     <GraphicDots />
-    <!-- <GraphicLineChart :chartData="confirmado" :options="chartOptions" label="confirmados"></GraphicLineChart> -->
+    <div v-if="arrConfirmados.length > 0">
+      <GraphicLineChart :chartData="arrConfirmados" :options="chartOptions" label="confirmado"></GraphicLineChart>
+    </div>
     <!-- <GraphicSingleBar /> -->
     
     <div class="container card mt-2">
@@ -69,7 +71,7 @@ import GraphicHorizontalBars from "../components/graphic_horizontalbars";
 // import GraphicSingleBar from "../components/graphic_singlebar";
 import GraphicDots from "../components/graphic_dots";
 import CrawlerService from '../service/crawler_service';
-// import GraphicLineChart from "../components/graphic_linechart";
+import GraphicLineChart from "../components/graphic_linechart";
 
 export default {
   name: "Graphic",
@@ -78,7 +80,7 @@ export default {
     // GraphicVerticalBar,
     // GraphicSingleBar,
     GraphicDots,
-    // GraphicLineChart
+    GraphicLineChart
   },
 
   data() {
@@ -101,20 +103,16 @@ export default {
   async created() {
       this.crawlerData();
 
-      return this.crawler.forEach((c) => {
+      this.crawler.forEach(c => {
         const{
-          data,
-          obito,
-          confirmado
+          data = c.data,
+          obito = c.obito,
+          confirmado = c.confirmado
         } = c;
 
         this.arrObitos.push({data, total: obito});
         this.arrConfirmados.push({data, total: confirmado});
-
-        console.log(c);
-        return c;
       });
-
 
   },
 

@@ -19,19 +19,19 @@ export default {
     },
 
     mounted() {
-        // const data = this.chartData.map(d => d.data).reverse();
-        // const totals = this.chartData.map(d => d.total).reverse();
+        const dates = this.chartData.map(c => c.data).reverse();
+        const totals = this.chartData.map(c => c.total).reverse();
 
-        // this.renderChart(
-        // {
-        //     labels: dates,
-        //     datasets: [{
-        //         label: this.label,
-        //         data: this.totals,
-        //     }]
-        // },
-        // this.options
-        // );
+        this.renderChart(
+            {
+                labels: dates,
+                datasets: [{
+                    label: this.label,
+                    data: totals,
+                }]
+            },
+        this.options
+        );
     }
 
 

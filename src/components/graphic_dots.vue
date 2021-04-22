@@ -3,8 +3,6 @@
 
     <div class="col-lg-4 col-md-12 m-0 p-0 bg-light">
     <h3>Curitiba - 16/04/2021</h3>
-    <input type="hidden" value="crawler.data" id="idteste">
-    <input type="hidden" v-for="c in cityFilter" v-bind:key="c.id">
     <GChart      
       type="PieChart"
       :data="chartData"
