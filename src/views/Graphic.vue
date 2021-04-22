@@ -5,6 +5,7 @@
     <!-- <GraphicVerticalBar />   -->
     <GraphicHorizontalBars />
     <GraphicDots />
+    <!-- <GraphicLineChart :chartData="confirmado" :options="chartOptions" label="confirmados"></GraphicLineChart> -->
     <!-- <GraphicSingleBar /> -->
     
     <div class="container card mt-2">
@@ -68,6 +69,7 @@ import GraphicHorizontalBars from "../components/graphic_horizontalbars";
 // import GraphicSingleBar from "../components/graphic_singlebar";
 import GraphicDots from "../components/graphic_dots";
 import CrawlerService from '../service/crawler_service';
+// import GraphicLineChart from "../components/graphic_linechart";
 
 export default {
   name: "Graphic",
@@ -75,15 +77,47 @@ export default {
     GraphicHorizontalBars,
     // GraphicVerticalBar,
     // GraphicSingleBar,
-    GraphicDots
+    GraphicDots,
+    // GraphicLineChart
   },
 
   data() {
     return {
-      crawler: [],
       search: "",
+
+      crawler: [],
+
+      arrConfirmados: [],
+      arrObitos: [],
+
+      chartOptions: {
+        responsive: true,
+        maintainAspectRatio: false,
+      }, 
+
     };
   },
+
+  async created() {
+      this.crawlerData();
+
+      return this.crawler.forEach((c) => {
+        const{
+          data,
+          obito,
+          confirmado
+        } = c;
+
+        this.arrObitos.push({data, total: obito});
+        this.arrConfirmados.push({data, total: confirmado});
+
+        console.log(c);
+        return c;
+      });
+
+
+  },
+
 
   computed:{
     cityFilter() {
@@ -102,11 +136,6 @@ export default {
       });
     },
   },
-
-  created() {
-      this.crawlerData();
-  },
-
 
 };
 </script>

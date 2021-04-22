@@ -24,7 +24,7 @@
     </div>
 
     <div class="col-lg-4 col-md-12 m-0 p-0 bg-light">
-    <h3>Curitiba - 22/04/2021</h3>
+    <h3>Curitiba - 19/04/2021</h3>
     <GChart      
       type="PieChart"
       :data="chartData3"
@@ -47,25 +47,24 @@ export default {
   },
   data() {
     return {
-      crawler: [],
       instructor: "crawler",
-      obito: "",
+      crawler: [],
 
       // Array will be automatically processed with visualization.arrayToDataTable function
       chartData: [
         ["Status", "100k habitantes"],
-        ["Casos", 7364],
-        ["Obitos", 203]
+        ["Casos", 143479],
+        ["Obitos", 3956]
       ],
       chartData2: [
         ["Status", "100k habitantes"],
-        ["Casos", 7364],
-        ["Obitos", 203]
+        ["Casos", 143824],
+        ["Obitos", 3972]
       ],
       chartData3: [
         ["Status", "100k habitantes"],
-        ["Casos", 7364],
-        ["Obitos", 203]
+        ["Casos", 144150],
+        ["Obitos", 3978]
       ],
 
 
@@ -85,12 +84,24 @@ export default {
       CrawlerService.retriveAllData(this.instructor)
         .then(response => {
           this.crawler = response.data;
+
         });
     },
   },
   
   created() {
-      this.crawlerData();
+    this.crawlerData();
+
+    // data.forEach(c => {
+    //   const data = c.data;
+    //   const{
+    //     confirmado,
+    //     obito 
+    //   } = c;
+    // })
+    // this.data.push({data, total: confirmado});
+    // this.data.push({data, total: obito});
+
   },
 };
 </script>

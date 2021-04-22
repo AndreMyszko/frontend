@@ -35,8 +35,8 @@ export default {
       chartData: [
         ['Dias', 'Casos', 'Mortes'],
         ['16/04/2021', 143479, 3956],
-        ['18/04/2021', 143479, 3956],
-        ['20/03/2021', 143479, 3956],
+        ['18/04/2021', 143824, 3972],
+        ['19/04/2021', 144150, 3978],
       ],
     }
   },
@@ -47,7 +47,7 @@ export default {
       return this.chartsLib.charts.Bar.convertOptions({
         chart: {
           title: 'Amostras - Curitiba',
-          subtitle: 'Casos, Recuperados, e Mortes: 16/04/2021 - 22/04/2021',
+          subtitle: 'Confirmados e Obitos: 16/04/2021 - 19/04/2021',
         },
         bars: 'horizontal', // Required for Material Bar Charts.
         hAxis: { format: 'decimal' },
