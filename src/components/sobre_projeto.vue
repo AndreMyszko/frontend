@@ -64,6 +64,20 @@
               alt="dev_logo"
             ></b-img>
           </div>
+          <div>
+            <b-img
+              class="devImg ml-2 mr-2 mb-3"
+              :src="require('../assets/tecnologies/logo_chartjs.png')"
+              alt="dev_logo"
+            ></b-img>
+          </div>
+          <div>
+            <b-img
+              class="devImg ml-2 mr-2 mb-3"
+              :src="require('../assets/tecnologies/logo_aws.png')"
+              alt="dev_logo"
+            ></b-img>
+          </div>
         </b-nav>
         <b-card-text class="mt-3">
           Para saber mais sobre o desenvolvimento visite nossos links de
